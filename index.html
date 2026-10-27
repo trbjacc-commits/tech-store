@@ -86,19 +86,47 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
-      opacity: 0.3;
+      opacity: 0.5;
     }
 
-    .hero::after {
+    .section-bg {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .section-bg::before {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(to bottom, rgba(10,10,15,0.4) 0%, rgba(10,10,15,0.9) 90%);
+      background-size: cover;
+      background-position: center;
+      opacity: 0.35;
+      z-index: 0;
+    }
+
+    .section-bg::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(10,10,15,0.4) 0%, rgba(10,10,15,0.8) 100%);
       z-index: 1;
     }
+
+    .section-bg > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    .bg-img1::before { background-image: url('img/bg1.jpg'); }
+    .bg-img2::before { background-image: url('img/bg2.jpg'); }
+    .bg-img3::before { background-image: url('img/bg3.jpg'); }
+    .bg-img4::before { background-image: url('img/bg4.jpg'); }
 
     .hero-content {
       position: relative;
@@ -470,7 +498,7 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero section-bg bg-img1">
     <video class="hero-video" autoplay muted loop playsinline>
       <source src="hero-bg.mp4" type="video/mp4">
     </video>
@@ -486,7 +514,7 @@
   </section>
 
   <!-- CATEGORIES -->
-  <section id="categorias">
+  <section id="categorias" class="section-bg bg-img2">
     <div class="section-title scroll-reveal">
       <h2>Categorias</h2>
       <p>Encontra lo que necesitas</p>
@@ -516,7 +544,7 @@
   </section>
 
   <!-- PRODUCTS -->
-  <section id="productos">
+  <section id="productos" class="section-bg bg-img3">
     <div class="section-title scroll-reveal">
       <h2>Productos Destacados</h2>
       <p>Lo mas vendido esta semana</p>
@@ -582,7 +610,7 @@
   </div>
 
   <!-- FEATURES -->
-  <section id="nosotros">
+  <section id="nosotros" class="section-bg bg-img4">
     <div class="section-title scroll-reveal">
       <h2>Por que elegirnos</h2>
       <p>Tu compra segura y confiable</p>
